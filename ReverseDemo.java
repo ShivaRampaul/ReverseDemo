@@ -1,13 +1,11 @@
 class Reverse {
-	public void reverseR(String sentR) { //sentR: string input
-		// String recRev(String s) {
-		// 	Char result;
-		// 	if (s == sentR.length()) {
-		// 		return (sentR.length() - 1);
-		// 	}
-		// 	result = recRev(s-1)
 
-		// }
+	public String reverseR(String sentR, int b) { //sentR: string input
+		if (b == sentR.length()-1) {
+			return sentR.substring(b, b+1);
+		}
+		String v = reverseR(sentR, b+1) + sentR.substring(b, b+1);
+		return v;
 	}
 
 	public String reverseI(String sentI) { //sentI: string input
@@ -21,11 +19,24 @@ class Reverse {
 	}
 }
 
-
 class ReverseDemo {
 	public static void main(String args[]) {
 		String s = "hello";
 		Reverse hi = new Reverse();
-		System.out.println(hi.reverseI(s));
+		System.out.println(hi.reverseR(s, 0));
 	}
 }
+
+// int b = 0;
+
+// 	public String reverseR(String sentR) { //sentR: string input
+// 		char sentArray[] = new char[sentR.length()];
+// 		if (b < sentR.length()) {
+// 			int v = sentR.length() - (b + 1);
+// 			sentArray[v] = sentR.charAt(b);
+// 			b++;
+// 			reverseR(sentR);
+// 		}
+// 		String revStr = new String(sentArray);
+// 		return revStr;
+// 	}
